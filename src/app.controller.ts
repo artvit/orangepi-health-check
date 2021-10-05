@@ -1,12 +1,19 @@
 import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { SystemInformationService } from './system-information.service';
+import { CurrentStatus } from './model/current-status';
+import { SystemInfo } from './model/system-info';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly systemInformationService: SystemInformationService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @Get('/status')
+  async getStatus(): Promise<CurrentStatus> {
+    return await this.systemInformationService.getCurrentStatus();
+  }
+
+  @Get('/sys-info')
+  async getSystemInfo(): Promise<SystemInfo> {
+    return await this.systemInformationService.getSystemInfo();
   }
 }
