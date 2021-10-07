@@ -33,4 +33,4 @@ jobs:
           context: .
           platforms: linux/arm/v7,linux/arm64/v8,linux/amd64
           push: true
-          tags: artvit/orangepi-health-check:latest,artvit/orangepi-health-check:${TAG_NAME}
+          tags: artvit/orangepi-health-check:latest,artvit/orangepi-health-check:${{ env.TAG_NAME }}
