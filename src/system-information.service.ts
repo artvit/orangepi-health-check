@@ -6,12 +6,12 @@ import { SystemInfo } from './model/system-info';
 @Injectable()
 export class SystemInformationService {
   async getCurrentStatus(): Promise<CurrentStatus> {
-    const { main: temperature } = await si.cpuTemperature();
     const { cores: coresSpeed } = await si.cpuCurrentSpeed();
-    const { total, free, used } = await si.mem();
+    const { main: temperature } = await si.cpuTemperature();
+    const { total, free, used, active, buffers, cached } = await si.mem();
     return {
       cpu: { temperature, coresSpeed },
-      memory: { total, free, used },
+      memory: { total, free, used, active, buffers, cached },
     };
   }
 
