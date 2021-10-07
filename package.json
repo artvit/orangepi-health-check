@@ -1,6 +1,6 @@
 {
   "name": "orangepi-health-check",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Service to check the state of your Orange Pi.",
   "author": "Artem Vitkovsky <artvitk@gmail.com>",
   "private": true,
