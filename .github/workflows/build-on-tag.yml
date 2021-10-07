@@ -6,7 +6,7 @@ on:
       - '*'
 
 env:
-  TAG_NAME: ${GITHUB_REF#refs/*/}
+  TAG_NAME: ${{ env.GITHUB_REF#refs/*/ }}
 
 jobs:
   Build-And-Push-Docker-Image:
